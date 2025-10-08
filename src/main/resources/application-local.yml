@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: pedidos-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/pendientico2
+    username: postgres
+    password: admin
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    schemas: core
+    default-schema: core
+    baseline-on-migrate: true
+
+server:
+  port: 8080
+
+management:
+  metrics:
+    export:
+      defaults:
+        enabled: false

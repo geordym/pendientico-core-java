@@ -1,3 +1,5 @@
 spring:
+  application:
+    name: pendientico-backend-core
   profiles:
     active: local

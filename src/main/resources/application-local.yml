@@ -1,21 +1,29 @@
 spring:
-  application:
-    name: pedidos-service
   datasource:
-    url: jdbc:postgresql://localhost:5432/pendientico2
-    username: postgres
-    password: admin
+    url: ${DATABASE_URL:jdbc:postgresql://keycloak_postgres:5435/pendientico-core}
+    username: ${DATABASE_USER}
+    password: ${DATABASE_PASSWORD}
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
       ddl-auto: validate
+    properties:
+      hibernate:
+        default_schema: core
+    show-sql: true
+
   flyway:
     schemas: core
     default-schema: core
     baseline-on-migrate: true
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8092/realms/pendientico
 
 server:
-  port: 8080
+  port: 8082
 
 management:
   metrics:

@@ -1,8 +1,10 @@
 package com.pendientico.core.infraestructure.configuration.bean;
 
 import com.pendientico.core.domain.ports.UserAuthProviderPort;
+import com.pendientico.core.domain.ports.WorkspaceContactPersistencePort;
 import com.pendientico.core.domain.ports.WorkspaceMemberPersistencePort;
 import com.pendientico.core.domain.ports.WorkspacePersistencePort;
+import com.pendientico.core.domain.usecases.workspaces.InviteCollaboratorUseCase;
 import com.pendientico.core.domain.usecases.workspaces.CreateWorkspaceUseCase;
 import com.pendientico.core.infraestructure.adapters.auth.UserAuthProviderAdapterImpl;
 import com.pendientico.core.infraestructure.adapters.persistence.postgres.adapter.WorkspacePersistenceJpaAdapter;
@@ -27,6 +29,11 @@ public class DomainBeanConfiguration {
     @Bean
     public WorkspacePersistencePort workspacePersistenceAdapter(WorkspaceJpaRepository workspaceJpaRepository, WorkspaceEntityMapper workspaceEntityMapper){
         return new WorkspacePersistenceJpaAdapter(workspaceJpaRepository, workspaceEntityMapper);
+    }
+
+    @Bean
+    public InviteCollaboratorUseCase createWorkspaceContactUseCase(WorkspaceContactPersistencePort workspaceContactPersistencePort){
+        return new InviteCollaboratorUseCase(workspaceContactPersistencePort);
     }
 
 

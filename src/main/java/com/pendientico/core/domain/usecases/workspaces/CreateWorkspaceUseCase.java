@@ -4,7 +4,7 @@ import com.pendientico.core.domain.model.WorkspaceMemberModel;
 import com.pendientico.core.domain.model.WorkspaceModel;
 import com.pendientico.core.domain.ports.WorkspaceMemberPersistencePort;
 import com.pendientico.core.domain.ports.WorkspacePersistencePort;
-import com.pendientico.core.domain.values.Role;
+import com.pendientico.core.domain.values.enums.Role;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

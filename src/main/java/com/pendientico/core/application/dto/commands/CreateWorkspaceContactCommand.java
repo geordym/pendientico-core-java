@@ -8,19 +8,20 @@ import java.util.UUID;
 
 @Data
 @AllArgsConstructor
-public class CreateWorkspaceCommand {
+public class CreateWorkspaceContactCommand {
 
     @Data
     @AllArgsConstructor
-    public static class Input{
-        private String workspaceName;
+    public static class Input {
+        private UUID workspaceId;
+        private String clientName;
     }
 
     @Data
-    @AllArgsConstructor
     @Builder
+    @AllArgsConstructor
     public static class Output{
-        private UUID workspaceId;
+        private UUID contactId;
     }
 
 }
